@@ -14,8 +14,15 @@ Instruções:
 # ==============================================================================
 # Dado um texto (string), retorne um dicionário onde as chaves são as palavras 
 # e os valores são o número de vezes que cada palavra aparece no texto.
-def contar_frequencia(texto):
-    pass
+def frequencia(texto):
+    palavras = texto.split()
+    frequencia = {}
+    for i in palavras:
+        if i in frequencia:
+            frequencia[i] += 1
+        else:
+            frequencia[i] = 1
+    return frequencia
 
 
 # ==============================================================================
@@ -24,8 +31,8 @@ def contar_frequencia(texto):
 # Dada uma lista de números inteiros, utilize a função `map` em conjunto com 
 # uma função `lambda` para criar e retornar uma nova lista onde cada elemento 
 # é o quadrado do valor original.
-def elevar_ao_quadrado(numeros):
-    pass
+def quadrado(N):
+    return list(map(lambda x: x**2, N))
 
 
 # ==============================================================================
@@ -33,16 +40,19 @@ def elevar_ao_quadrado(numeros):
 # ==============================================================================
 # Dada uma lista de nomes, utilize a função `filter` e uma função `lambda` 
 # para retornar uma lista apenas com os nomes que possuem 3 letras ou menos.
-def filtrar_nomes_curtos(nomes):
-    pass
+def nomes_curtos(nomes):
+    return list(filter(lambda x: len(x) <= 3, nomes))
 
 
 # ==============================================================================
 # Questão 4: Recursão (20 pontos)
 # ==============================================================================
 # Crie uma função recursiva que calcule a soma de todos os números numa lista.
-def soma_recursiva(lista):
-    pass
+def soma(lista):
+    if len(lista) == 0:
+        return 0
+    else:
+        return lista[0] + soma(lista[1:])
 
 
 # ==============================================================================
@@ -55,10 +65,14 @@ def soma_recursiva(lista):
 # das funções lambda nesse contexto."
 
 RESPOSTA_Q5 = """
-Escreva a sua resposta teórica aqui...
+A utilização de funções lambda junto com map/filter facilita a leitura 
+do código e é mais otimizada em comparação com o laço "for", o que é
+muito importante para modelos de Machine Learning onde boa performance
+é necessária.
 """
 
 if __name__ == "__main__":
-    # Área livre para testes locais do aluno.
-    # Exemplo: print(contar_frequencia("teste de mesa teste"))
-    pass
+    print(frequencia("teste do do salu legal"))
+    print(quadrado([1, 2, 3, 4, 67]))
+    print(nomes_curtos(["Salu", "Levado", "Erik", "Birubabu", "Jao"]))
+    print(soma([1, 2, 3, 4, 67]))
